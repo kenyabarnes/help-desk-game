@@ -14,30 +14,53 @@ public class mainGameController : MonoBehaviour
     public Item itemPrefab;
     public int numberOfCharacters = 0;
 
+    public bool characterActive = false;
+
     // Start is called before the first frame update
     void Start()
     {
         populateCharacters(numberOfCharacters);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (line.Count == 0) {
+            Debug.Log("Game Over!");
+        }
+
+        if (!characterActive) {
+            int nextId = line[0].id;
+            Transform activeCharacter = GameObject.Find("Queue").transform.GetChild(nextId);
+            characterActive = true;
+            activeCharacter.gameObject.SetActive(true);
+            line.RemoveAt(0);
+            
+        }
     }
 
     void populateCharacters(int numberOfCharacters) {
         for (int i = 0; i < numberOfCharacters; i++) {
-           line.Add(createCharacter());
+           line.Add(createCharacter(i));
         }
     }
 
-    Character createCharacter() {
+    Character createCharacter(int id) {
         Character newCharacter = Instantiate(characterPrefab, characterList.transform);
+        newCharacter.id = id;
         newCharacter.characterName = "test";
         newCharacter.type = "found";
         newCharacter.dialouge = new List<string>();
-        newCharacter.dialouge.Add("i found my cat!");
+        newCharacter.dialouge.Add("The first line is the initial text of the character.");
+        newCharacter.dialouge.Add("The second line is the text of when the player gets the item right.");
+        newCharacter.dialouge.Add("The third line is the text when the player gets the item wrong.");
+
+        Item newItem = Instantiate(itemPrefab, newCharacter.gameObject.transform);
+        newItem.itemName = "Keys";
+        newItem.description = "someone probably lost these";
+
+        newCharacter.item = newItem;
 
         return newCharacter;
     }
