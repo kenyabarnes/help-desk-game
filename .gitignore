@@ -72,3 +72,6 @@ crashlytics-build.properties
 
 # VSCode
 .VSCode
+
+#NO META FILES GET OUTTA HERE
+/Assets/*.meta
