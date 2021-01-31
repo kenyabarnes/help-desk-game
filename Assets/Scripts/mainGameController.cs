@@ -157,7 +157,7 @@ public class mainGameController : MonoBehaviour
                 area.GetComponent<DropOff>().itemSetUp(item, dragControll);
             }
             if(area.tag == "InventorySlot") {
-                area.GetComponent<InventorySlot>().itemSetUp(item);
+                area.GetComponent<InventorySlot>().itemSetUp(item, dragControll);
             }
         }
     }

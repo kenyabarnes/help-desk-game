@@ -5,6 +5,8 @@ using System;
 
 public class Item : MonoBehaviour
 {
+    public int id;
+    
     public string itemname;
     public string description;
 
