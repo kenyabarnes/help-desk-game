@@ -9,6 +9,8 @@ public class Character : MonoBehaviour
     public string type;
     public List<string> dialouge;
 
+    public AudioClip audioClip;
+
     public Item item;
 
     void OnEnable()
