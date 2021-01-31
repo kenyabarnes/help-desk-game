@@ -7,7 +7,7 @@ public class Item : MonoBehaviour
 {
     public string itemName;
     public string description;
-
+    
     public GameObject area;
 
     public event EventHandler<string> Enter;
