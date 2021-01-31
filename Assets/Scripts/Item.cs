@@ -32,4 +32,8 @@ public class Item : MonoBehaviour
     public void OnExit(string tag) {
         Exit?.Invoke(this, tag);
     }
+
+    public void setZ(float i){
+        transform.position.Set(transform.position.x, transform.position.y, i);
+    }
 }

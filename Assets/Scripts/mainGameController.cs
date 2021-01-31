@@ -14,6 +14,7 @@ public class mainGameController : MonoBehaviour
     public GameObject characterList;
     public Item itemPrefab;
     public int numberOfCharacters = 0;
+    public float itemLayer = 0f;
 
     public bool characterActive = false;
     public bool inArea = false;
@@ -84,8 +85,15 @@ public class mainGameController : MonoBehaviour
         if(inArea){
             Item item = o.GetComponent<Item>();
             GameObject area = item.area;
-            
+        
             Debug.Log("Item Let Go At: " + area.tag);
+
+            if(area.tag == "DropOff") {
+
+            }
+            if(area.tag == "InventorySlot") {
+                area.GetComponent<InventorySlot>().itemSetUp(item);
+            }
         }
     }
 }

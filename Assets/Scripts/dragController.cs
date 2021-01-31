@@ -32,7 +32,9 @@ public class dragController : MonoBehaviour
 
         if(Input.GetMouseButtonUp(0)) {
             isDragging = false;
-            OnLetGo(hit.collider.gameObject);
+            if(hit.collider != null) {
+                OnLetGo(hit.collider.gameObject);
+            }
         }
         
         if(isDragging) {
