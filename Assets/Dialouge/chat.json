@@ -87,17 +87,18 @@
                 "found": "Ayy, I uh, found this thing lyin' around...doesn't look too valuable, so maybe someone else'll want it?",
                 "not_available": "Ah geez, really? Someone else must've swiped it already. Tough break.",
                 "wrong": "So uh, not really what I'm lookin' for... doesn't look like it's worth too much.",
-                "correct": "Ayy thanks buddy! Now if you'll excuse me, I need to get back to, uh, "buying" stuff from these stores."
+                "correct": "Ayy thanks buddy! Now if you'll excuse me, I need to get back to, uh, \"buying\" stuff from these stores."
             },
             "lost": {
-                "communicator" : "Ayy, so like, I was "shopping" at the electronics boutique and I picked up this slick communicator totally legit. But on the way out, I was a klutz and dropped it. You seen it?",
+                "communicator" : "Ayy, so like, I was \"shopping\" at the electronics boutique and I picked up this slick communicator totally legit. But on the way out, I was a klutz and dropped it. You seen it?",
                 "keys": "Ayy, so, you know the safe in your manager's office? Well, it was really tough to get the key to that safe, and I think I dropped it running away from security. You seen it?",
                 "raygun": "Ayy I uh, was on my way to the department store for some totally legit, totally legal shopping, and I dropped my blaster! I need it to shop, trust me. You seen it?",
                 "petspider": "I got a little pet buddy, he's good at sniffin' stuff out... seems he got away from me somehow. You seen him around?",
                 "diary": "So uh, I like to keep tabs on the value of the inventory at stores. For reasons, ya know. I keep it written down in this little notebook. Ya seen it?",
                 "ticket": "So uh, I found this ticket for a virtual reality show layin' around. Totally didn't find it in some guy's pocket or nothin'. You seen it?",
                 "toy": "So I uh, got this little gizmo for my nephew. Was walkin out with it, and silly me, tossed it too far over the store scanners! You seen it?",
-                "briefcase": "Ayy so, I like to keep all the stuff I've "bought" in this case like thing. But I was a klutz and dropped it while runnin' away from security. You seen it around?"
+                "briefcase": "Ayy so, I like to keep all the stuff I've \"bought\" in this case like thing. But I was a klutz and dropped it while runnin' away from security. You seen it around?"
+            }
         }
     ]
 }
