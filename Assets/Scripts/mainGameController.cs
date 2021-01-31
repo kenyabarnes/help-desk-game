@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class mainGameController : MonoBehaviour
 {
@@ -56,12 +57,19 @@ public class mainGameController : MonoBehaviour
         newCharacter.dialouge.Add("The second line is the text of when the player gets the item right.");
         newCharacter.dialouge.Add("The third line is the text when the player gets the item wrong.");
 
-        Item newItem = Instantiate(itemPrefab, newCharacter.gameObject.transform);
+        //Item newItem = Instantiate(itemPrefab, newCharacter.gameObject.transform);
+        Item newItem = Instantiate(itemPrefab, GameObject.Find("ItemSpawnPoint").transform);
         newItem.itemName = "Keys";
         newItem.description = "someone probably lost these";
+
+        newItem.DroppedOff += newItem_OnDroppedOff;
 
         newCharacter.item = newItem;
 
         return newCharacter;
+    }
+
+    void newItem_OnDroppedOff(object sender, EventArgs e){
+        Debug.Log("Item Name: " + (sender as Item).itemName);
     }
 }

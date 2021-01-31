@@ -22,6 +22,7 @@ public class Character : MonoBehaviour
 
             List<Item> inventory = GameObject.Find("Game Controllers").transform.GetComponent<mainGameController>().inventory;
             inventory.Add(item);
+
             Debug.Log("FOUND A CHARACTER");
         }
 
