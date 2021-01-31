@@ -38,6 +38,12 @@ public class Slot : MonoBehaviour
         }
     }
 
+    public void deactivateItem() {
+        Item tmp = item;
+        RemoveItemFromSlot();
+        tmp.gameObject.SetActive(false);
+    }
+
     public void item_OnExit(object sender, string tag) {
         RemoveItemFromSlot();
     }
