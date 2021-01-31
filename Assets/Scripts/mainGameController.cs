@@ -27,6 +27,12 @@ public class mainGameController : MonoBehaviour
     public ChatModel chatmodel;
     public ItemModel itemmodel;
 
+    public GameObject karen;
+    public GameObject businessman;
+    public GameObject valleygirl;
+    public GameObject dejectedguy;
+    public GameObject casualthief;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,6 +76,26 @@ public class mainGameController : MonoBehaviour
         CharacterType chosenType = charactertypes[randomType];
 
         newCharacter.characterName = chosenType.name;
+
+        GameObject animator;
+        switch(chosenType.type){
+            
+            case "karen":
+                animator = Instantiate(karen, newCharacter.transform);
+                break;
+            case "businessman":
+                animator = Instantiate(businessman, newCharacter.transform);
+                break;
+            case "valleygirl":
+                animator = Instantiate(valleygirl, newCharacter.transform);
+                break;
+            case "dejectedguy":
+                animator = Instantiate(dejectedguy, newCharacter.transform);
+                break;
+            case "casualthief":
+                animator = Instantiate(casualthief, newCharacter.transform);
+                break;
+        }
         
         //randomly choose between found type and lost type character
         string[] lostOrFound = new string[] {"lost", "found"}; 
