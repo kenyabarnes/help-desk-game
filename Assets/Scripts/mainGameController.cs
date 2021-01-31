@@ -13,7 +13,16 @@ public class mainGameController : MonoBehaviour
     public Character characterPrefab;
 
     public GameObject characterList;
-    public Item itemPrefab;
+
+    public Item communicatorPrefab;
+    public Item keysPrefab;
+    public Item raygunPrefab;
+    public Item petspiderPrefab;
+    public Item diaryPrefab;
+    public Item ticketPrefab;
+    public Item briefcasePrefab;
+    public Item toyPrefab;
+
     public int numberOfCharacters = 0;
     public float itemLayer = 0f;
 
@@ -54,6 +63,7 @@ public class mainGameController : MonoBehaviour
     {
         if (line.Count == 0) {
             Debug.Log("Game Over!");
+            this.GetComponent<EndGameSceneScript>().nextScene("game_over");
         }
 
         if (!characterActive && (line.Count != 0)) {
@@ -67,11 +77,11 @@ public class mainGameController : MonoBehaviour
             this.GetComponent<AudioSource>().Play();
         }
 
-        if(activeCharacter.GetComponent<Character>().type.Equals("lost") && !itemNotFound.gameObject.activeSelf) {
+        if(characterActive && activeCharacter.GetComponent<Character>().type.Equals("lost") && !itemNotFound.gameObject.activeSelf) {
             itemNotFound.gameObject.SetActive(true);
         }
 
-        if(activeCharacter.GetComponent<Character>().type.Equals("found") && itemNotFound.gameObject.activeSelf) {
+        if(characterActive && activeCharacter.GetComponent<Character>().type.Equals("found") && itemNotFound.gameObject.activeSelf) {
             itemNotFound.gameObject.SetActive(false);
         }
     }
@@ -134,10 +144,43 @@ public class mainGameController : MonoBehaviour
         int randomItemType = UnityEngine.Random.Range(0, itemtypes.Length);
         ItemJSON chosenItem = itemtypes[randomItemType]; 
 
-        Item newItem = Instantiate(itemPrefab, GameObject.Find("ItemSpawnPoint").transform);
+        Item newItem;
+
+        switch (chosenItem.itemname)
+        {
+            case "communicator":
+                newItem = Instantiate(communicatorPrefab, GameObject.Find("ItemSpawnPoint").transform);
+                break;
+            case "keys":
+                newItem = Instantiate(keysPrefab, GameObject.Find("ItemSpawnPoint").transform);
+                break;
+            case "raygun":
+                newItem = Instantiate(raygunPrefab, GameObject.Find("ItemSpawnPoint").transform);
+                break;
+            case "petspider":
+                newItem = Instantiate(petspiderPrefab, GameObject.Find("ItemSpawnPoint").transform);
+                break;
+            case "diary":
+                newItem = Instantiate(diaryPrefab, GameObject.Find("ItemSpawnPoint").transform);
+                break;                
+            case "ticket":
+                newItem = Instantiate(ticketPrefab, GameObject.Find("ItemSpawnPoint").transform);
+                break;                
+            case "briefcase":
+                newItem = Instantiate(briefcasePrefab, GameObject.Find("ItemSpawnPoint").transform);
+                break;                
+            case "toy":
+                newItem = Instantiate(toyPrefab, GameObject.Find("ItemSpawnPoint").transform);                                                                            
+                break;      
+            default:
+                newItem = Instantiate(keysPrefab, GameObject.Find("ItemSpawnPoint").transform);
+                break;
+        }
+         
         newItem.id = id;
         newItem.itemname = chosenItem.itemname;
         newItem.description = chosenItem.description;
+        
         newItem.Enter += newItem_OnEnter;
         newItem.Exit += newItem_OnExit;
         newCharacter.item = newItem;
@@ -187,8 +230,6 @@ public class mainGameController : MonoBehaviour
         } else {
             Debug.Log("Character doesn't have a type assigned");
         }
-
-
 
         return newCharacter;
     }

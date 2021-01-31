@@ -213,7 +213,7 @@ PrefabInstance:
     - target: {fileID: 2666485277525350947, guid: d59610f7b6eea1b42a46a1497f358d95,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2666485277525350947, guid: d59610f7b6eea1b42a46a1497f358d95,
         type: 3}
@@ -778,8 +778,8 @@ Transform:
   m_Children:
   - {fileID: 1267288631}
   - {fileID: 1694561124}
-  - {fileID: 2045257680}
   - {fileID: 56322734}
+  - {fileID: 2045257680}
   - {fileID: 1128169810}
   - {fileID: 1354316317}
   - {fileID: 1269920449}
@@ -1933,6 +1933,7 @@ GameObject:
   - component: {fileID: 1848164696}
   - component: {fileID: 1848164695}
   - component: {fileID: 1848164697}
+  - component: {fileID: 1848164698}
   m_Layer: 0
   m_Name: Game Controllers
   m_TagString: Untagged
@@ -1957,7 +1958,21 @@ MonoBehaviour:
   characterPrefab: {fileID: 2243291010651879352, guid: 136a3cb5f5766eb40860261c24e91919,
     type: 3}
   characterList: {fileID: 260840983}
-  itemPrefab: {fileID: 8508522204811530204, guid: 8f4c4b1a2a867584e984925ba931a879,
+  communicatorPrefab: {fileID: 1775753210281495966, guid: 62412b0e3a2db6b46a98f26fa0d695f8,
+    type: 3}
+  keysPrefab: {fileID: 1917782629150507748, guid: c442e1ff63509ed4c936ef75092d9692,
+    type: 3}
+  raygunPrefab: {fileID: 2455849279645329836, guid: 70679bdd6ede5ee4b90e7ea116851d8f,
+    type: 3}
+  petspiderPrefab: {fileID: 193589218705652987, guid: 013f1ef42394aec499298a6901c8f155,
+    type: 3}
+  diaryPrefab: {fileID: 8897269532230112989, guid: ebc59aaf783df934e89460e373246bb7,
+    type: 3}
+  ticketPrefab: {fileID: 3936564034554227757, guid: 035f3e1912c571c4d8d9ac8a09f206ee,
+    type: 3}
+  briefcasePrefab: {fileID: 6611569822069251426, guid: 5839e2b5e4fc30d4e8c47f72752c149b,
+    type: 3}
+  toyPrefab: {fileID: 6494933180865147010, guid: 5963333a5415365488e84c144d709750,
     type: 3}
   numberOfCharacters: 15
   itemLayer: 0
@@ -2142,6 +2157,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1848164698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848164691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46d62ef9857f134a9fdacddd21c3356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextSceneName: game_over
 --- !u!1 &1852570041
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,7 +2281,7 @@ PrefabInstance:
     - target: {fileID: 2666485277525350947, guid: d59610f7b6eea1b42a46a1497f358d95,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2666485277525350947, guid: d59610f7b6eea1b42a46a1497f358d95,
         type: 3}
