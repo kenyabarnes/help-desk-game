@@ -5,8 +5,6 @@ using System;
 
 public class mainGameController : MonoBehaviour
 {
-
-    public List<Item> inventory;
     public List<Character> line;
 
     public dragController dragControll;
@@ -60,7 +58,6 @@ public class mainGameController : MonoBehaviour
         newCharacter.dialouge.Add("The second line is the text of when the player gets the item right.");
         newCharacter.dialouge.Add("The third line is the text when the player gets the item wrong.");
 
-        //Item newItem = Instantiate(itemPrefab, newCharacter.gameObject.transform);
         Item newItem = Instantiate(itemPrefab, GameObject.Find("ItemSpawnPoint").transform);
         newItem.itemName = "Keys";
         newItem.description = "someone probably lost these";

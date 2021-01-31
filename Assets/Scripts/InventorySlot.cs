@@ -6,9 +6,5 @@ public class InventorySlot : MonoBehaviour
 {
     public Item item;
 
-    void Update() {
-
-    }
-
 
 }
