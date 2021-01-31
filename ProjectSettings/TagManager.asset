@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Draggable
+  - InventorySlot
+  - DropOff
   layers:
   - Default
   - TransparentFX
