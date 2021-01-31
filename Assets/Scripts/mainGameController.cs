@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 
 public class mainGameController : MonoBehaviour
@@ -27,6 +28,8 @@ public class mainGameController : MonoBehaviour
     public ChatModel chatmodel;
     public ItemModel itemmodel;
 
+    public Button itemNotFound;
+
     public GameObject karen;
     public GameObject businessman;
     public GameObject valleygirl;
@@ -39,6 +42,9 @@ public class mainGameController : MonoBehaviour
         chatmodel = JsonUtility.FromJson<ChatModel>(chatJsonFile.text);
         itemmodel = JsonUtility.FromJson<ItemModel>(itemJsonFile.text);
         populateCharacters(numberOfCharacters);
+
+        Button btn = itemNotFound.GetComponent<Button>();
+        btn.onClick.AddListener(notFoundClick);
         dragControll.LetGo += dragControll_OnLetGo;
         characterActive = false;
     }
@@ -58,12 +64,24 @@ public class mainGameController : MonoBehaviour
             line.RemoveAt(0);
             
         }
+
+        if(activeCharacter.GetComponent<Character>().type.Equals("lost") && !itemNotFound.gameObject.activeSelf) {
+            itemNotFound.gameObject.SetActive(true);
+        }
+
+        if(activeCharacter.GetComponent<Character>().type.Equals("found") && itemNotFound.gameObject.activeSelf) {
+            itemNotFound.gameObject.SetActive(false);
+        }
     }
 
     void populateCharacters(int numberOfCharacters) {
         for (int i = 0; i < numberOfCharacters; i++) {
            line.Add(createCharacter(i));
         }
+    }
+
+    void notFoundClick() {
+        activeCharacter.GetComponent<Character>().notFoundClick();
     }
 
     Character createCharacter(int id) {
@@ -124,6 +142,7 @@ public class mainGameController : MonoBehaviour
             newCharacter.dialouge.Add(chosenType.generic.found);
             newCharacter.dialouge.Add(chosenType.generic.correct);
             newCharacter.dialouge.Add(chosenType.generic.wrong);
+            newCharacter.dialouge.Add(chosenType.generic.not_available);
         } else if (newCharacter.type.Equals("lost")) {
             switch (newCharacter.item.itemname)
             {
@@ -157,6 +176,7 @@ public class mainGameController : MonoBehaviour
             }
             newCharacter.dialouge.Add(chosenType.generic.correct);
             newCharacter.dialouge.Add(chosenType.generic.wrong);
+            newCharacter.dialouge.Add(chosenType.generic.not_available);
         } else {
             Debug.Log("Character doesn't have a type assigned");
         }
