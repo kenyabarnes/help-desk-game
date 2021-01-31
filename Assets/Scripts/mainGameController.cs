@@ -154,10 +154,13 @@ public class mainGameController : MonoBehaviour
             Debug.Log("Item Let Go At: " + area.tag);
 
             if(area.tag == "DropOff") {
-                area.GetComponent<DropOff>().itemSetUp(item, dragControll);
+                area.GetComponent<DropOff>().PutItemInSlot(item, dragControll);
+
+                // Move the item in DropOff to the desk
+                area.GetComponent<DropOff>().MoveToDesk();
             }
             if(area.tag == "InventorySlot") {
-                area.GetComponent<InventorySlot>().itemSetUp(item, dragControll);
+                area.GetComponent<InventorySlot>().PutItemInSlot(item, dragControll);
             }
         }
     }
