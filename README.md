@@ -26,7 +26,7 @@
 - [Contributing](../CONTRIBUTING.md)
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgments)
-- 
+
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
 Download the latest [release](https://github.com//kenyabarnes/help-desk-game/releases) of the game.
@@ -56,6 +56,6 @@ There will be characters coming to your help-desk to drop of items that they fou
 - [@KyrisCrass](https://github.com/KyrisCrass) - Narrative Lead | Utilities
 - [Riley Cates](https://globalgamejam.org/users/twincates) - Music Director
 
-See also the list of [contributors](https://github.com//kenyabarnes/help-desk-gamecontributors)
+See also the list of [contributors](https://github.com//kenyabarnes/help-desk-game/contributors)
 who participated in this project.
 
