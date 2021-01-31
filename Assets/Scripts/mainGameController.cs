@@ -69,7 +69,7 @@ public class mainGameController : MonoBehaviour
         return newCharacter;
     }
 
-    void newItem_OnDroppedOff(object sender, EventArgs e){
-        Debug.Log("Item Name: " + (sender as Item).itemName);
+    void newItem_OnDroppedOff(object sender, string tag){
+        Debug.Log("Item Name: " + (sender as Item).itemName + " Tag: " + tag);
     }
 }
