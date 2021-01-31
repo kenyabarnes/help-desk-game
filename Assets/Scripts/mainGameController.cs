@@ -19,11 +19,20 @@ public class mainGameController : MonoBehaviour
     public bool characterActive = false;
     public bool inArea = false;
 
+    public TextAsset chatJsonFile;
+    public TextAsset itemJsonFile;
+
+    public ChatModel chatmodel;
+    public ItemModel itemmodel;
+
     // Start is called before the first frame update
     void Start()
     {
+        chatmodel = JsonUtility.FromJson<ChatModel>(chatJsonFile.text);
+        itemmodel = JsonUtility.FromJson<ItemModel>(itemJsonFile.text);
         populateCharacters(numberOfCharacters);
         dragControll.LetGo += dragControll_OnLetGo;
+        characterActive = false;
     }
 
     // Update is called once per frame
@@ -52,21 +61,77 @@ public class mainGameController : MonoBehaviour
     Character createCharacter(int id) {
         Character newCharacter = Instantiate(characterPrefab, characterList.transform);
         newCharacter.id = id;
-        newCharacter.characterName = "test";
-        newCharacter.type = "found";
-        newCharacter.dialouge = new List<string>();
-        newCharacter.dialouge.Add("The first line is the initial text of the character.");
-        newCharacter.dialouge.Add("The second line is the text of when the player gets the item right.");
-        newCharacter.dialouge.Add("The third line is the text when the player gets the item wrong.");
+
+        // randomly choose a character class
+        CharacterType[] charactertypes = chatmodel.charactertypes;
+        int randomType = UnityEngine.Random.Range(0, charactertypes.Length);
+        CharacterType chosenType = charactertypes[randomType];
+
+        newCharacter.characterName = chosenType.name;
+        
+        //randomly choose between found type and lost type character
+        string[] lostOrFound = new string[] {"lost", "found"}; 
+        int randomChoice = UnityEngine.Random.Range(0, lostOrFound.Length);
+        string chosenChoice = lostOrFound[randomChoice]; 
+
+        newCharacter.type = chosenChoice;
+
+        //randomly choose an item
+        ItemJSON[] itemtypes = itemmodel.items;
+        int randomItemType = UnityEngine.Random.Range(0, itemtypes.Length);
+        ItemJSON chosenItem = itemtypes[randomItemType]; 
 
         Item newItem = Instantiate(itemPrefab, GameObject.Find("ItemSpawnPoint").transform);
-        newItem.itemName = "Keys";
-        newItem.description = "someone probably lost these";
-
+        newItem.itemname = chosenItem.itemname;
+        newItem.description = chosenItem.description;
         newItem.Enter += newItem_OnEnter;
         newItem.Exit += newItem_OnExit;
-
         newCharacter.item = newItem;
+
+        //branching logic for adding dialouge
+        newCharacter.dialouge = new List<string>();
+
+        if (newCharacter.type.Equals("found")) {
+            newCharacter.dialouge.Add(chosenType.generic.found);
+            newCharacter.dialouge.Add(chosenType.generic.correct);
+            newCharacter.dialouge.Add(chosenType.generic.wrong);
+        } else if (newCharacter.type.Equals("lost")) {
+            switch (newCharacter.item.itemname)
+            {
+                case "communicator":
+                    newCharacter.dialouge.Add(chosenType.lost.communicator);
+                    break;
+                case "keys":
+                    newCharacter.dialouge.Add(chosenType.lost.keys);
+                    break;
+                case "raygun":
+                    newCharacter.dialouge.Add(chosenType.lost.raygun);
+                    break;
+                case "petspider":
+                    newCharacter.dialouge.Add(chosenType.lost.petspider);
+                    break;
+                case "diary":
+                    newCharacter.dialouge.Add(chosenType.lost.diary);
+                    break;                
+                case "ticket":
+                    newCharacter.dialouge.Add(chosenType.lost.ticket);
+                    break;                
+                case "briefcase":
+                    newCharacter.dialouge.Add(chosenType.lost.briefcase);
+                    break;                
+                case "toy":
+                    newCharacter.dialouge.Add(chosenType.lost.toy);                                                                            
+                    break;                
+                default:
+                    newCharacter.dialouge.Add("look man i just work here");
+                    break;            
+            }
+            
+        } else {
+            Debug.Log("Character doesn't have a type assigned");
+        }
+
+
 
         return newCharacter;
     }

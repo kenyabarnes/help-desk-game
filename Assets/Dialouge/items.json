@@ -1,35 +1,35 @@
 {
     "items" : [
         {
-            "name" : "communicator",
+            "itemname" : "communicator",
             "description": "It's been buzzing nonstop."
         },
         {
-            "name" : "keys",
+            "itemname" : "keys",
             "description": "A strange key for an even stranger lock."
         },
         {
-            "name" : "raygun",
+            "itemname" : "raygun",
             "description": "This probably shouldn't be allowed in a shopping mall."
         },
         {
-            "name" : "petspider",
+            "itemname" : "petspider",
             "description": "The bites mean they love you."
         },
         {
-            "name" : "diary",
+            "itemname" : "diary",
             "description": "Full of dark secrets and gossip."
         },
         {
-            "name" : "ticket",
+            "itemname" : "ticket",
             "description": "They've long missed the show, why would they want this back?"
         },
         {
-            "name" : "briefcase",
+            "itemname" : "briefcase",
             "description": "Full of dark secrets and money."
         },
         {
-            "name" : "toy",
+            "itemname" : "toy",
             "description": "Popular with the young, the young at heart, and collectors."
         }
     ]
