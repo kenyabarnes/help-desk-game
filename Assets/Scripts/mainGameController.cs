@@ -7,7 +7,7 @@ public class mainGameController : MonoBehaviour
 {
     public List<Character> line;
 
-    public dragController dragControll;
+    public DragController dragControll;
     
     public Character characterPrefab;
 
@@ -154,7 +154,7 @@ public class mainGameController : MonoBehaviour
             Debug.Log("Item Let Go At: " + area.tag);
 
             if(area.tag == "DropOff") {
-
+                area.GetComponent<DropOff>().itemSetUp(item, dragControll);
             }
             if(area.tag == "InventorySlot") {
                 area.GetComponent<InventorySlot>().itemSetUp(item);

@@ -3,17 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class dragController : MonoBehaviour
+public class DragController : MonoBehaviour
 {
-    public bool smoothDrag = false;
-    //public float dragLayer = 0;
-    public float smoothDragPading = .05f;
-    public float speed = 0.08f;
-
     private bool isDragging = false;
     private RaycastHit2D hit;
 
     public event EventHandler<GameObject> LetGo;
+    public event EventHandler<GameObject> PickedUp;
 
     // Update is called once per frame
     void Update()
@@ -25,6 +21,7 @@ public class dragController : MonoBehaviour
             if (hit.collider != null && hit.collider.gameObject.CompareTag("Draggable")) {
                 isDragging = true;
                 Debug.Log("Something was clicked: " + hit.collider.gameObject.name);
+                OnPickedUp(hit.collider.gameObject);
             } else {
                 //Debug.Log("Something was NOT clicked!");
             }
@@ -40,17 +37,15 @@ public class dragController : MonoBehaviour
         if(isDragging) {
             Vector2 mousePos2D = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 direction = (mousePos2D - new Vector2(hit.transform.position.x, hit.transform.position.y));
-
-            if(smoothDrag && Mathf.Abs(direction.magnitude)  > smoothDragPading) {
-                direction.Normalize();
-                hit.transform.Translate(direction * speed);
-            } else {
-                hit.transform.Translate(direction);
-            }
+            hit.transform.Translate(direction);
         }
     }
 
     public void OnLetGo(GameObject o) {
         LetGo?.Invoke(this, o);
+    }
+
+    public void OnPickedUp(GameObject o) {
+        PickedUp?.Invoke(this, o);
     }
 }
