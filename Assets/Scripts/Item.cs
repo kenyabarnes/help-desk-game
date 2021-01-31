@@ -8,14 +8,28 @@ public class Item : MonoBehaviour
     public string itemName;
     public string description;
 
-    public event EventHandler<string> DroppedOff;
+    public GameObject area;
+
+    public event EventHandler<string> Enter;
+    public event EventHandler<string> Exit;
 
     void OnTriggerEnter2D(Collider2D collider) {
-    	Debug.Log("Entered drop off area");
-        OnDroppedOff(collider.gameObject.tag);
+    	Debug.Log("Entered Area: " + collider.gameObject.tag);
+        area = collider.gameObject;
+        OnEnter(collider.gameObject.tag);
     }
 
-    public void OnDroppedOff(string tag) {
-        DroppedOff?.Invoke(this, tag);
+    void OnTriggerExit2D(Collider2D collider) {
+        Debug.Log("Exited Area: " + collider.gameObject.tag);
+        area = null;
+        OnExit(collider.gameObject.tag);
+    }
+
+    public void OnEnter(string tag) {
+        Enter?.Invoke(this, tag);
+    }
+
+    public void OnExit(string tag) {
+        Exit?.Invoke(this, tag);
     }
 }

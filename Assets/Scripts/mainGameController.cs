@@ -8,6 +8,8 @@ public class mainGameController : MonoBehaviour
 
     public List<Item> inventory;
     public List<Character> line;
+
+    public dragController dragControll;
     
     public Character characterPrefab;
 
@@ -16,12 +18,13 @@ public class mainGameController : MonoBehaviour
     public int numberOfCharacters = 0;
 
     public bool characterActive = false;
+    public bool inArea = false;
 
     // Start is called before the first frame update
     void Start()
     {
         populateCharacters(numberOfCharacters);
-
+        dragControll.LetGo += dragControll_OnLetGo;
     }
 
     // Update is called once per frame
@@ -62,14 +65,30 @@ public class mainGameController : MonoBehaviour
         newItem.itemName = "Keys";
         newItem.description = "someone probably lost these";
 
-        newItem.DroppedOff += newItem_OnDroppedOff;
+        newItem.Enter += newItem_OnEnter;
+        newItem.Exit += newItem_OnExit;
 
         newCharacter.item = newItem;
 
         return newCharacter;
     }
 
-    void newItem_OnDroppedOff(object sender, string tag){
-        Debug.Log("Item Name: " + (sender as Item).itemName + " Tag: " + tag);
+    void newItem_OnEnter(object sender, string tag) {
+        //Debug.Log("Item Name: " + (sender as Item).itemName + " Tag: " + tag);
+        inArea = true;
+    }
+
+    void newItem_OnExit(object sender, string tag) {
+        //Debug.Log("Item Name: " + (sender as Item).itemName + " Tag: " + tag);
+        inArea = false;
+    }
+
+    void dragControll_OnLetGo(object sender, GameObject o) {
+        if(inArea){
+            Item item = o.GetComponent<Item>();
+            GameObject area = item.area;
+            
+            Debug.Log("Item Let Go At: " + area.tag);
+        }
     }
 }

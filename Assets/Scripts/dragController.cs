@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class dragController : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class dragController : MonoBehaviour
 
     private bool isDragging = false;
     private RaycastHit2D hit;
+
+    public event EventHandler<GameObject> LetGo;
 
     // Update is called once per frame
     void Update()
@@ -23,12 +26,13 @@ public class dragController : MonoBehaviour
                 isDragging = true;
                 Debug.Log("Something was clicked: " + hit.collider.gameObject.name);
             } else {
-                Debug.Log("Something was NOT clicked!");
+                //Debug.Log("Something was NOT clicked!");
             }
         }
 
         if(Input.GetMouseButtonUp(0)) {
             isDragging = false;
+            OnLetGo(hit.collider.gameObject);
         }
         
         if(isDragging) {
@@ -42,5 +46,9 @@ public class dragController : MonoBehaviour
                 hit.transform.Translate(direction);
             }
         }
+    }
+
+    public void OnLetGo(GameObject o) {
+        LetGo?.Invoke(this, o);
     }
 }
