@@ -61,6 +61,12 @@ public class Character : MonoBehaviour
         return true;
     }
 
+    public void notFoundClick() {
+        TextMeshProUGUI dialougeBox = FindObjectOfType<TextMeshProUGUI>();
+        dialougeBox.SetText(dialouge[3]);
+        done();
+    }
+
     void done() {
         GameObject gameController = GameObject.Find("Game Controllers");
         mainGameController script = gameController.GetComponent<mainGameController>();
