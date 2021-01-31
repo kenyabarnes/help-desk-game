@@ -48,6 +48,8 @@ public class Slot : MonoBehaviour
         RemoveItemFromSlot();
     }
     public void item_OnPickedUp(object sender, GameObject o) {
-        RemoveItemFromSlot();
+        if(item.id == o.GetComponent<Item>().id){
+            RemoveItemFromSlot();
+        }
     }
 }
