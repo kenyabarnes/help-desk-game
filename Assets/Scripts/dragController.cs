@@ -19,8 +19,7 @@ public class dragController : MonoBehaviour
             Vector2 mousePos2D = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
 
-            //if (hit.collider != null && hit.transform.position.z == dragLayer) {
-            if (hit.collider != null) {
+            if (hit.collider != null && hit.collider.gameObject.CompareTag("Draggable")) {
                 isDragging = true;
                 Debug.Log("Something was clicked: " + hit.collider.gameObject.name);
             } else {

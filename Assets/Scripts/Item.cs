@@ -8,10 +8,6 @@ public class Item : MonoBehaviour
     public string itemName;
     public string description;
 
-    public void remove(){
-        Destroy(gameObject);
-    }
-
     public event EventHandler DroppedOff;
 
     void OnTriggerEnter2D(Collider2D collider) {
