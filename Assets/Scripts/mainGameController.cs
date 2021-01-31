@@ -63,6 +63,8 @@ public class mainGameController : MonoBehaviour
             activeCharacter.SetActive(true);
             line.RemoveAt(0);
             
+            this.GetComponent<AudioSource>().clip = activeCharacter.GetComponent<Character>().audioClip;
+            this.GetComponent<AudioSource>().Play();
         }
 
         if(activeCharacter.GetComponent<Character>().type.Equals("lost") && !itemNotFound.gameObject.activeSelf) {
@@ -100,18 +102,23 @@ public class mainGameController : MonoBehaviour
             
             case "karen":
                 animator = Instantiate(karen, newCharacter.transform);
+                newCharacter.audioClip = this.GetComponent<AudioStorage>().karen_audio;
                 break;
             case "businessman":
                 animator = Instantiate(businessman, newCharacter.transform);
+                newCharacter.audioClip = this.GetComponent<AudioStorage>().businessman_audio;
                 break;
             case "valleygirl":
                 animator = Instantiate(valleygirl, newCharacter.transform);
+                newCharacter.audioClip = this.GetComponent<AudioStorage>().valleygirl_audio;
                 break;
             case "dejectedguy":
                 animator = Instantiate(dejectedguy, newCharacter.transform);
+                newCharacter.audioClip = this.GetComponent<AudioStorage>().dejectedguy_audio;
                 break;
             case "casualthief":
                 animator = Instantiate(casualthief, newCharacter.transform);
+                newCharacter.audioClip = this.GetComponent<AudioStorage>().casualthief_audio;
                 break;
         }
         
