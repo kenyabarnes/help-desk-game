@@ -13,20 +13,19 @@ public class Character : MonoBehaviour
 
     void OnEnable()
     {
-        toggleItem();
+        
 
         if (type.Equals("found")) {
-
+            toggleItem();
             TextMeshProUGUI dialougeBox = FindObjectOfType<TextMeshProUGUI>();
             dialougeBox.SetText(dialouge[0]);
-
-            // List<Item> inventory = GameObject.Find("Game Controllers").transform.GetComponent<mainGameController>().inventory;
-            // inventory.Add(item);
 
             Debug.Log("FOUND A CHARACTER");
         }
 
         if (type.Equals("lost")) {
+            TextMeshProUGUI dialougeBox = FindObjectOfType<TextMeshProUGUI>();
+            dialougeBox.SetText(dialouge[0]);
             Debug.Log("LOST A CHARACTER. GIMMIE ITEM");
         }
     }
@@ -46,6 +45,7 @@ public class Character : MonoBehaviour
                 if(givenItem.itemname.Equals(item.itemname)) {
                     TextMeshProUGUI dialougeBox = FindObjectOfType<TextMeshProUGUI>();
                     dialougeBox.SetText(dialouge[1]);
+                    givenItem.transform.parent.gameObject.GetComponent<DropOff>().deactivateItem();
                     done();
                 } else {
                     TextMeshProUGUI dialougeBox = FindObjectOfType<TextMeshProUGUI>();

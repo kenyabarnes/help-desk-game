@@ -50,7 +50,7 @@ public class mainGameController : MonoBehaviour
             Debug.Log("Game Over!");
         }
 
-        if (!characterActive) {
+        if (!characterActive && (line.Count != 0)) {
             int nextId = line[0].id;
             activeCharacter = GameObject.Find("Queue").transform.GetChild(nextId).gameObject;
             characterActive = true;
@@ -110,6 +110,7 @@ public class mainGameController : MonoBehaviour
         ItemJSON chosenItem = itemtypes[randomItemType]; 
 
         Item newItem = Instantiate(itemPrefab, GameObject.Find("ItemSpawnPoint").transform);
+        newItem.id = id;
         newItem.itemname = chosenItem.itemname;
         newItem.description = chosenItem.description;
         newItem.Enter += newItem_OnEnter;
