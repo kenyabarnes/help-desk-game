@@ -191,6 +191,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: dropOff
       objectReference: {fileID: 0}
+    - target: {fileID: 6306127944169895294, guid: edfb9e34c6fa929448b16846894d62ba,
+        type: 3}
+      propertyPath: m_TagString
+      value: DropOff
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edfb9e34c6fa929448b16846894d62ba, type: 3}
 --- !u!1 &41528460
