@@ -10,10 +10,10 @@
                 "correct": "Thank goodness. Maybe I won't leave that bad review after all"
             },
             "lost": {
-                "communicator" : "Um, hello? Is this the lost and found? I slipped and dropped my communicator while walking around the mall because the floors are too clean and slippery! I'm going to file a complaint to your supervisor when I get home!",
-                "keys": "Um, hello? I lost the starter to my ship! How are me and my son supposed to leave? We're trapped in this dump!",
-                "raygun": "Um, hello? Is this the lost and found? I lost the blaster I need for self-defense in this mall full of thugs! You need more security around here!",
-                "petspider": "Um, hello? Is this the lost and found? I lost track of our family's best little friend in this convoluted mall! My son will be devastated if I don't find him soon!",
+                "communicator" : "Um, hello? Is this the lost and found? The floors of this mall are too clean and slippery! I fell and dropped my stuff in the middle of a phone call!",
+                "keys": "Um, hello? My son and I are trapped in this dump because I can't get my ship started! Help!",
+                "raygun": "Um, hello? Is this the lost and found? This mall is full of thugs! I lost the thing I need to defend myself from these hooligans.",
+                "petspider": "Um, hello? Is this the lost and found? I lost track of my son's little friend in this convoluted mall!",
                 "diary": "Um, hello? I lost this little book... hurry up and give it back before my husband sees, or he'll want to read it!",
                 "ticket": "Hurry up! The movie is in the previews!",
                 "toy": "Um hi? Is this the lost and found? My son dropped something over near the game shop. You better not have lost it, or I'm going to have some choice words for your management.",
@@ -27,17 +27,17 @@
                 "found": "Pardon me, I stumbled upon this lost trinket. I hope you can return it to its rightful owner.",
                 "not_available": "Well, that is unfortunate. You'll be hearing from my many expensive lawyers.",
                 "wrong": "This isn't what I lost, please don't waste any more of my time.",
-                "correct": "Thank you for the help. I'll put in a good word to your management after I complete the purchase of this property."
+                "correct": "Thank you for the help. I'll put in a good word to your management after I buy out this mall."
             },
             "lost": {
-                "communicator" : "",
-                "keys": "Excuse me, I think I misplaced the keys to my penthouse condo in the pocket of a new suit I was getting fitted. Has anyone left it around here?",
-                "raygun": "",
-                "petspider": "Excuse me, have you seen my little Tara? She's a rare and expensive breed.",
-                "diary": "My therapist said I need to keep a log of all the things that stress me out, and I lost track of it... you seen it around?",
+                "communicator" : "Excuse me, I have an important meeting I need to call into soon, would you happen to have seen a communicator device around the mall?",
+                "keys": "Excuse me, can't return to my penthouse condo. I believe I left the keys in a new suit I was getting fitted. Has anyone dropped it off here?",
+                "raygun": "When you're as rich and successful as I am, you become a target for thieves and thugs. So I purchased some personal defense from the sports shop, and accidentally left it there.",
+                "petspider": "Excuse me, have you seen my little Tara? She's a rare and expensive breed of her kind.",
+                "diary": "My therapist said I need to keep a log of all the things that stress me out, and I lost track of it... have you come across it?",
                 "ticket": "Hello there. I seem to have misplaced the slip for my front row seats at the concert starting soon. Is it around here?",
-                "toy": "Hello there. My young daughter dropped something very special to her. Would it happen to have been dropped off here?",
-                "briefcase": "Hello there. I seem to have misplaced an important case full of important documents pertaining to my work. I really need it. To buy this mall, actually."
+                "toy": "Hello there. My young daughter dropped something very special to her. Has anyone found it?",
+                "briefcase": "Hello there. I seem to have misplaced a case of important documents pertaining to my work. I really need it. To buy this mall, as a matter of fact."
             }
         },
         {
@@ -50,14 +50,14 @@
                 "correct": "Yaaay, thanks!"
             },
             "lost": {
-                "communicator" : "Heyyyy, I think I set my comm down somewhere in the mall. It's like, super-duper important that I find it asap, it has a ton of pics and selfies I haven't posted yet and I also haven't answered my bf's text I just remembered I forgot to do that and also I think it was pretty expensive when my dad bought it and we didn't get a replacement plan even though I asked ya know?",
+                "communicator" : "Heyyyy, so like, I have a ton of pics and selfies I haven't posted yet and a lots of texts I forgot to answer I really need my thing back because my dad didn't get me a replacement plan or anything on it, ya know what I mean? He'll flip if I lose it!",
                 "keys": "Heyyy, have you seen a like...uh, what's it called again. Ya know like. The thing you use to get in a house. I need it to get in my house, my folks will be asleep cause I'm totally gonna sneak in too late. What's that kinda thing called again? Doesn't matter, I'm sure you know what I mean. You got that lying back there?",
                 "raygun": "Heyyy, have you seen my bf's, like, piece? He's really proud of it, always goes on about how nobody should mess with him. He's like, totally super insecure, it's cute.",
-                "petspider": "Heyyy, have you seen my precious little baby anywhere? He jumped out of my purse while I was looking for a new purse, I think. Hope he didn't bite anyone... he totally didn't bite anyone, at all.",
+                "petspider": "Heyyy, have you seen my precious little baby anywhere? He jumped out of my purse while I was looking for a new purse, I think. Hope he didn't bite anyone... he totally didn't bite anyone, if someone asks.",
                 "diary": "Help, I lost my journal! I totally definitely don't write mean things about all my friends in it, and if you read it, you totally didn't see anything!",
-                "ticket": "Heyyy so like me and my bf were supposed to see a virtual reality flick tonight and like he bought tickets but I totally lost mine and he's gonna go nuts and call me an airhead again and that's really gonna get me down so do you like have it or anything?",
-                "toy": "Heyyy so like, I bought my little brother this cute little thing for him to like play with and stuff and I think I lost it somewhere, is it around here?",
-                "briefcase": "So like. I totally didn't bring my dad's case full of money to the mall to spend it. But if I did, and set it down somewhere, would you happen to have seen it?"
+                "ticket": "Heyyy so like my bf is gonna go nuts because we have a date tonight and we're gonna see this virtual reality flick and I lost that piece of paper I need to get in, have you seen one laying around?",
+                "toy": "Heyyy so like, I lost this cute thing I got for my little brother, is it around here?",
+                "briefcase": "So like. I totally didn't bring my dad's case full of money to the mall to spend it. But if I did and lost track of it, would you know where to find it?"
             }
         },
         {
@@ -71,14 +71,33 @@
             },
             "lost": {
                 "communicator" : "Nobody really calls me but... have you seen a communicator around here? I like to take moody pictures with the camera...",
-                "keys": "I misplaced the key to my tiny 1 bedroom studio apartment on MegaBloc 6... any chance it ended up here?",
+                "keys": "So uh... I live in this small apartment in MegaBloc 6, and I lost my way in the front door... any chance it ended up here?",
                 "raygun": "Can't ever be too careful I guess... you seen a lost gun around here? Must have slipped out of my pocket or something...",
                 "petspider": "My little pal Andy Mandibles is my only friend in this dark world, but he ran away from me like usual... seen him around here?",
-                "diary": "Down at the coffee shop, I like to write poetry in this journal... I think I left it there by mistake... have you come across it?",
-                "ticket": "I had a ticket to the virtual reality show, all by myself... and somehow even screwed that up... you seen it around?",
-                "toy": "Hey...don't judge me, but I've got this keepsake from my youth, when times were happier... I think I dropped it somewhere...",
+                "diary": "Down at the coffee shop, I like to write poetry... but I lost track of my notebook somewhere. Have you come across it?",
+                "ticket": "I had a ticket to the virtual reality movie, all by myself... and somehow even screwed that up... you seen it around?",
+                "toy": "Hey...don't judge me, but I've got this keepsake from my youth, when I was happy and innocent... I think I dropped it somewhere...",
                 "briefcase": "I've got this case full of my drawings... I'm hoping I can be a famous artist someday, if anyone ever notices my work... but they sure won't if I don't find it."
-            }
+                 }
+        },
+        {
+            "name" : "Burgie Lurr",
+            "type" : "casualthief",
+            "generic": {
+                "found": "Ayy, I uh, found this thing lyin' around...doesn't look too valuable, so maybe someone else'll want it?",
+                "not_available": "Ah geez, really? Someone else must've swiped it already. Tough break.",
+                "wrong": "So uh, not really what I'm lookin' for... doesn't look like it's worth too much.",
+                "correct": "Ayy thanks buddy! Now if you'll excuse me, I need to get back to, uh, "buying" stuff from these stores."
+            },
+            "lost": {
+                "communicator" : "Ayy, so like, I was "shopping" at the electronics boutique and I picked up this slick communicator totally legit. But on the way out, I was a klutz and dropped it. You seen it?",
+                "keys": "Ayy, so, you know the safe in your manager's office? Well, it was really tough to get the key to that safe, and I think I dropped it running away from security. You seen it?",
+                "raygun": "Ayy I uh, was on my way to the department store for some totally legit, totally legal shopping, and I dropped my blaster! I need it to shop, trust me. You seen it?",
+                "petspider": "I got a little pet buddy, he's good at sniffin' stuff out... seems he got away from me somehow. You seen him around?",
+                "diary": "So uh, I like to keep tabs on the value of the inventory at stores. For reasons, ya know. I keep it written down in this little notebook. Ya seen it?",
+                "ticket": "So uh, I found this ticket for a virtual reality show layin' around. Totally didn't find it in some guy's pocket or nothin'. You seen it?",
+                "toy": "So I uh, got this little gizmo for my nephew. Was walkin out with it, and silly me, tossed it too far over the store scanners! You seen it?",
+                "briefcase": "Ayy so, I like to keep all the stuff I've "bought" in this case like thing. But I was a klutz and dropped it while runnin' away from security. You seen it around?"
         }
     ]
 }
