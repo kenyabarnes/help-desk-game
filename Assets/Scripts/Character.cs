@@ -41,7 +41,7 @@ public class Character : MonoBehaviour
 
     public bool checkItem(Item givenItem) {
         if (type.Equals("lost")) {
-            if (item.transform.parent.gameObject.CompareTag("DropOff")) {
+            if (givenItem.transform.parent.gameObject.CompareTag("DropOff")) {
                 if(givenItem.itemname.Equals(item.itemname)) {
                     TextMeshProUGUI dialougeBox = FindObjectOfType<TextMeshProUGUI>();
                     dialougeBox.SetText(dialouge[1]);
