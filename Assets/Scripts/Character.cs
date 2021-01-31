@@ -31,6 +31,41 @@ public class Character : MonoBehaviour
         }
     }
 
+    void Update() {
+        if (type.Equals("found")) {
+            if (item.transform.parent.gameObject.CompareTag("InventorySlot")) {
+                done();
+            }
+        }
+        
+    }
+
+    public bool checkItem(Item givenItem) {
+        if (type.Equals("lost")) {
+            if (item.transform.parent.gameObject.CompareTag("DropOff")) {
+                if(givenItem.itemname.Equals(item.itemname)) {
+                    TextMeshProUGUI dialougeBox = FindObjectOfType<TextMeshProUGUI>();
+                    dialougeBox.SetText(dialouge[1]);
+                    done();
+                } else {
+                    TextMeshProUGUI dialougeBox = FindObjectOfType<TextMeshProUGUI>();
+                    dialougeBox.SetText(dialouge[2]);
+                    return false;
+                }
+            }
+        } else {
+            Debug.Log("Type is not defined");
+        }
+        return true;
+    }
+
+    void done() {
+        GameObject gameController = GameObject.Find("Game Controllers");
+        mainGameController script = gameController.GetComponent<mainGameController>();
+        script.characterActive = false;
+        this.gameObject.SetActive(false);
+    }
+
     void toggleItem() {
         if (item.gameObject.activeSelf) {
             item.gameObject.SetActive(false);

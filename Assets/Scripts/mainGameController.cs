@@ -17,6 +17,8 @@ public class mainGameController : MonoBehaviour
     public float itemLayer = 0f;
 
     public bool characterActive = false;
+
+    public GameObject activeCharacter;
     public bool inArea = false;
 
     public TextAsset chatJsonFile;
@@ -44,9 +46,9 @@ public class mainGameController : MonoBehaviour
 
         if (!characterActive) {
             int nextId = line[0].id;
-            Transform activeCharacter = GameObject.Find("Queue").transform.GetChild(nextId);
+            activeCharacter = GameObject.Find("Queue").transform.GetChild(nextId).gameObject;
             characterActive = true;
-            activeCharacter.gameObject.SetActive(true);
+            activeCharacter.SetActive(true);
             line.RemoveAt(0);
             
         }
@@ -126,7 +128,8 @@ public class mainGameController : MonoBehaviour
                     newCharacter.dialouge.Add("look man i just work here");
                     break;            
             }
-            
+            newCharacter.dialouge.Add(chosenType.generic.correct);
+            newCharacter.dialouge.Add(chosenType.generic.wrong);
         } else {
             Debug.Log("Character doesn't have a type assigned");
         }
@@ -154,10 +157,15 @@ public class mainGameController : MonoBehaviour
             Debug.Log("Item Let Go At: " + area.tag);
 
             if(area.tag == "DropOff") {
-                area.GetComponent<DropOff>().itemSetUp(item, dragControll);
+                area.GetComponent<DropOff>().PutItemInSlot(item, dragControll);
+
+                if (!activeCharacter.GetComponent<Character>().checkItem(item)) {
+                    area.GetComponent<DropOff>().MoveToDesk();
+                }
+                
             }
             if(area.tag == "InventorySlot") {
-                area.GetComponent<InventorySlot>().itemSetUp(item, dragControll);
+                area.GetComponent<InventorySlot>().PutItemInSlot(item, dragControll);
             }
         }
     }

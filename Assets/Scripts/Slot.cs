@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Slot : MonoBehaviour
 {
-     public  Item item;
+     protected  Item item;
      public DragController dragController;
 
-    public void itemSetUp(Item i, DragController dragController) {
+    public void CenterItem() {
+        item.transform.localPosition = new Vector3(0, 0, -0.1f);
+    }
+
+    public void PutItemInSlot(Item i, DragController dragController) {
         if(item == null){
             item = i;
             item.transform.SetParent(this.transform);
@@ -21,27 +25,23 @@ public class Slot : MonoBehaviour
         }
     }
 
-    public void CenterItem() {
-        item.transform.localPosition = new Vector3(0, 0, -0.1f);
-    }
-
-    public void LeaveSlot() {
-        GameObject isp = GameObject.Find("ItemSpawnPoint");
-        item.transform.SetParent(isp.transform);
-        item.Exit -= item_OnExit;
-        dragController.PickedUp -= item_OnPickedUp;
-        dragController = null;
-        item = null;
+    public void RemoveItemFromSlot() {
+        if(item != null) {
+            GameObject isp = GameObject.Find("ItemSpawnPoint");
+            item.transform.SetParent(isp.transform);
+            item.Exit -= item_OnExit;
+            dragController.PickedUp -= item_OnPickedUp;
+            dragController = null;
+            item = null;
+        } else {
+            Debug.LogError("ERROR: Slot has No Item");
+        }
     }
 
     public void item_OnExit(object sender, string tag) {
-        if(item != null){
-            LeaveSlot();
-        }
+        RemoveItemFromSlot();
     }
     public void item_OnPickedUp(object sender, GameObject o) {
-        if(item != null && item.id == o.GetComponent<Item>().id){
-            LeaveSlot();
-        }
+        RemoveItemFromSlot();
     }
 }
